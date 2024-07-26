@@ -1,6 +1,52 @@
-# FAKE NEWS DETECTION USING NLP
+# 📰 Fake News Detection Using Deep Learning Methods
 
-The proliferation of fake news poses significant challenges in today's information-driven society, undermining public trust and distorting democratic processes. Addressing this issue, our project aimed to develop a state-of-the-art model for fake news detection using natural language processing (NLP) techniques. We hypothesized that key features such as sentiment, absurdity, and reliability could be effectively extracted to differentiate between fake and real news. Additionally, recognizing the sequential nature of text data, we postulated that word order plays a crucial role in this classification task.
-Our dataset comprised approximately 44,000 news articles, evenly split between verified real and fake news. We have excluded all the external information such as images, source , date/ time, and metadata related to news and solely focused on the semantic meaning of the article text. We employed a comprehensive NLP pipeline, including data preprocessing, tokenization, and model training. Three distinct models were implemented and evaluated: GloVe embeddings with both unidirectional and bidirectional Long Short-Term Memory (LSTM), Term Frequency-Inverse Document Frequency (TFIDF) vectorizer with logistic regression, and a pre-trained Bidirectional Encoder Representations from Transformers (BERT) model.
-The results were remarkable, with all models achieving an accuracy exceeding 99%. While loss steadily decrease during training and evaluation; precision,recall and f1-score was above 99% as well. This exceptional performance underscores the effectiveness of our feature extraction approach. However, the significance of considering text sequentiality in fake news detection was nullified as using linear regression, which is an order insensitive technique, already gave us 99% accuracy. Our findings suggest that various NLP techniques can play a pivotal role in distinguishing deceptive content from legitimate news, providing a robust tool for mitigating the spread of misinformation.
-These results, while promising, warrant further validation across more diverse datasets and real-world scenarios to ensure generalization and robustness. Future work will focus on expanding our dataset and exploring additional modalities, such as images, to enhance our system's comprehensive capabilities in combating the harmful impact of fake news.
+### NEUROMATCH 2024 - NATURAL LANGUAGE PROCESSING
+#### A Novel Approach for Detecting Fake News using Deep Learning Methods
+
+---
+
+## Project Overview
+
+In this notebook, we propose several embedding and model pairs to classify news articles as either real or fake. The following approaches were explored:
+
+1. **GloVe Embeddings + LSTM (both uni/bidirectional models)**
+2. **TFIDF + Logistic Regression**
+3. **CountVectorizer + Logistic Regression**
+4. **Pretrained Tokenizer + Transformer Model from BERT**
+
+---
+
+## Installation and Setup
+
+To run this project, you'll need to install the required libraries. Use the following commands to set up your environment:
+
+```bash
+pip install numpy pandas matplotlib seaborn torch torchtext scikit-learn tqdm
+```
+## Usage
+
+### Import the Notebook 
+
+###  Import the Dataset
+
+You can either import the preprocessed data (`news_df_processed.csv`) or the raw dataframe that is of the form `{'label': (0 or 1), 'content': (article string)}`.
+
+```python
+news_df = pd.read_csv('path/to/your/news_df_processed.csv')
+```
+
+
+## Acknowledgements
+
+We would like to thank the Neuromatch Academy for providing the platform and resources for this project.
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Contact
+
+For any questions or suggestions, please contact:
+
+Boran Aybak Kilic
+boranaybak34@gmail.com
