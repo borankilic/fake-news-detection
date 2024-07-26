@@ -25,7 +25,9 @@ pip install numpy pandas matplotlib seaborn torch torchtext scikit-learn tqdm
 ```
 ## Usage
 
-### Import the Notebook 
+Using [preprocessing notebook](/fake_news_detection_preprocessing.ipynb), you can download the <a href='https://www.kaggle.com/datasets/emineyetm/fake-news-detection-datasets' >original dataset <a/> and apply whichever preprocessing steps you'd like.
+
+
 
 ###  Import the Dataset
 
@@ -34,11 +36,21 @@ You can either import the preprocessed data (`news_df_processed.csv`) or the raw
 ```python
 news_df = pd.read_csv('path/to/your/news_df_processed.csv')
 ```
+### GPU Limitations
+If you are going to run the notebook on base version GPU's, we highly recommend keeping `embedding_dimensions` under 250. Otherwise your session might crash and you'd lose all your progress. 
+
+### Training BERT Model
+
+Beware of the fact that each training epoch takes **10 mins** on 15.84 GB Tesla T4 GPU.
+
+```python
+history = model.fit(x = {'input_ids':X_train_token['input_ids'],'input_mask':X_train_token['attention_mask']}, y = Y_train, epochs=2, validation_split = 0.2, batch_size = 30, callbacks=[callback])
+```
 
 
 ## Acknowledgements
 
-We would like to thank the Neuromatch Academy for providing the platform and resources for this project.
+I would like to thank the Neuromatch Academy for providing the platform and resources for this project.
 
 ## License
 
